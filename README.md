@@ -8,5 +8,6 @@ Atualmente: Sistema de login concluido.
 Ao baixar o repo, rode:
 
 yarn install
+
 yarn start
 
