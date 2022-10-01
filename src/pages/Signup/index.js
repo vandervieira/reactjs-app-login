@@ -4,6 +4,7 @@ import Button from "../../components/Button";
 import * as C from "./styles";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import Select from 'react-select'
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -14,6 +15,17 @@ const Signup = () => {
 
   const { signup } = useAuth();
 
+  const tiposUsuarios = [
+    { value: 'responsavelfinanceiro', label: 'Responsável Financeiro' },
+    { value: 'colaborador', label: 'Colaborador' }
+  ]
+
+  const [tipoUsuario, setTipoUsuario] = useState("");
+ 
+  const handleChange = e => {
+    setTipoUsuario(e.value);
+  }
+   
   const handleSignup = () => {
     if (!email | !emailConf | !senha) {
       setError("Preencha todos os campos");
@@ -23,7 +35,7 @@ const Signup = () => {
       return;
     }
 
-    const res = signup(email, senha);
+    const res = signup(email, senha, tipoUsuario);
 
     if (res) {
       setError(res);
@@ -36,7 +48,7 @@ const Signup = () => {
 
   return (
     <C.Container>
-      <C.Label>SISTEMA DE LOGIN</C.Label>
+      <C.Label>Registro de Prestação de Contas - Cadastro</C.Label>
       <C.Content>
         <Input
           type="email"
@@ -56,6 +68,12 @@ const Signup = () => {
           value={senha}
           onChange={(e) => [setSenha(e.target.value), setError("")]}
         />
+        <Select
+        placeholder="Selecione o tipo de usuário"
+        value={tiposUsuarios.find(obj => obj.value === tipoUsuario)}
+        options={tiposUsuarios}
+        onChange={handleChange}
+      />
         <C.labelError>{error}</C.labelError>
         <Button Text="Inscrever-se" onClick={handleSignup} />
         <C.LabelSignin>
