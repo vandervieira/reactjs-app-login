@@ -31,7 +31,7 @@ const Signin = () => {
 
   return (
     <C.Container>
-      <C.Label>PROVA GB - Autenticacao</C.Label>
+      <C.Label>Registro de Prestação de Contas - Login</C.Label>
       <C.Content>
         <Input
           type="email"
