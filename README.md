@@ -1,13 +1,8 @@
-Aplicativo em react, para tarefa academica
+A simple ReactJS application to study.
 
-O enunciado da tarefa (o que precisa ser feito): 
-https://drive.google.com/file/d/1myDJgBxORxlCfc_1eq7991djLYT91bfZ/view
+After clone, run the commands below:
 
-Atualmente: Sistema de login concluido.
+npm install
 
-Ao baixar o repo, rode:
-
-yarn install
-
-yarn start
+npm start
 
